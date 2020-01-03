@@ -8,6 +8,9 @@
         <h2 class="center">
             teste
         </h2>
+        <div class="msg msg-info z-depth-3">
+          {{ $mensagem }}
+        </div>
         <div class="row">
             <form action="{{ route('site.login.entrar') }}" method="post">
                 {{ csrf_field() }}

@@ -9,12 +9,12 @@
             Clientes
         </h2>
         <div class="row">
-            <table>
+            <table class="table">
                 <thred>
                     <tr>
-                        <th>Id</th>
-                        <th>Nome</th>
-                        <th>Ação</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Ação</th>
                     </tr>
                 </thred>
                 <tbody>

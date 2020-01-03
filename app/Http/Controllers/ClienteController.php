@@ -18,7 +18,6 @@ class ClienteController extends Controller
     }
 
     public function adicionar(){
-        echo "teste";
         return view('cliente.adicionar');
     }
 
@@ -44,4 +43,3 @@ class ClienteController extends Controller
         return redirect()->route('cliente.listar');
     }
 }
-

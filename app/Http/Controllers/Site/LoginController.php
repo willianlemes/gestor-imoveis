@@ -8,17 +8,23 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function index(){
-        return view('login.index');
+    public function index(Request $request){
+        $mensagem = $request->session()->get('mensagem');
+        return view('login.index', compact('mensagem'));
     }
 
-    public function entrar(Request $req){
-        $login = $req->all();
-        if (Auth::attempt(['email'=>$login['email'],'password'=>$login['senha']])):
-            return redirect()->route('cliente.listar');
-        else:
-            return redirect()->route('site.login');
-        endif;
+    public function entrar(Request $request){
+        $login = $request->all();
+        if (Auth::attempt(['email'=>$login['email'],'password'=>$login['senha']])){
+          return redirect()->route('cliente.listar');
+        }else{
+          $request->session()
+          ->put(
+            'mensagem',
+            "Login inválido!"
+          );
+          return redirect()->route('site.login');
+        }
     }
 
     public function sair(){
