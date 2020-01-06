@@ -14,16 +14,16 @@
             <table class="table">
                 <thred>
                     <tr>
-                        <th scope="col">Id</th>
                         <th scope="col">Nome</th>
+                        <th scope="col">Apelido</th>
                         <th scope="col">Ação</th>
                     </tr>
                 </thred>
                 <tbody>
                 @foreach($pessoas as $pessoa)
                     <tr>
-                        <td>{{$pessoa->id}}</td>
                         <td>{{$pessoa->nome}}</td>
+                        <td>{{$pessoa->apelido}}</td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('cliente.editar',$pessoa->id) }}">Editar</a>
                         </td>
