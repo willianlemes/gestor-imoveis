@@ -1,36 +1,32 @@
 <div class="row">
-  <div class="col-md-12">
-
-    <select class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here..">
-      <option value="" disabled selected>Choose your country</option>
-      <option value="1">USA</option>
-      <option value="2">Germany</option>
-      <option value="3">France</option>
-      <option value="4">Poland</option>
-      <option value="5">Japan</option>
-    </select>
-    <label class="mdb-main-label">Label example</label>
-    <button class="btn-save btn btn-primary btn-sm">Save</button>
-
+  <div class="col">
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Perfil</label>
+      <select class="form-control" id="exampleFormControlSelect1" name="perfil">
+        <option value="cliente" {{ isset($pessoa) ? $pessoa->perfil === 'cliente' ? 'selected' : '' : '' }}>Cliente</option>
+        <option value="corretor" {{ isset($pessoa) ? $pessoa->perfil === 'corretor' ? 'selected' : '' : '' }}>Corretor</option>
+        <option value="interessado" {{ isset($pessoa) ? $pessoa->perfil === 'interessado' ? 'selected' : '' : '' }}>Interessado</option>
+        <option value="outro" {{ isset($pessoa) ? $pessoa->perfil === 'outro' ? 'selected' : '' : '' }}>Outro</option>
+      </select>
+    </div>
   </div>
-</div>
-
-
-
-<div class="form-group">
-  <label for="exampleFormControlSelect1">Tipo</label>
-  <select class="form-control" id="exampleFormControlSelect1">
-    <option value="F">Física</option>
-    <option value="J">Jurídica</option>
-  </select>
+  <div class="col">
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Tipo</label>
+      <select class="form-control" id="exampleFormControlSelect1" name="tipo">
+        <option value="F" {{ isset($pessoa) ? $pessoa->tipo === 'F' ? 'selected' : '' : '' }} >Física</option>
+        <option value="J" {{ isset($pessoa) ? $pessoa->tipo === 'J' ? 'selected' : '' : '' }}>Jurídica</option>
+      </select>
+    </div>
+  </div>
 </div>
 <div class="row">
   <div class="col">
       <label for="formGroupExampleInput">Nome</label>
-      <input type="text" class="form-control" id="formGroupExampleInput">
+      <input type="text" class="form-control" id="formGroupExampleInput" name="nome" value="{{ isset($pessoa->nome) ? $pessoa->nome : '' }}">
   </div>
   <div class="col">
     <label for="formGroupExampleInput2">Apelido</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2">
+    <input type="text" class="form-control" id="formGroupExampleInput2" name="apelido" value="{{ isset($pessoa->apelido) ? $pessoa->apelido : '' }}">
   </div>
 </div>

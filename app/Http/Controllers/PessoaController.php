@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Cliente;
+use App\Pessoa;
 use http\Client;
 use Illuminate\Http\Request;
 
-class ClienteController extends Controller
+class PessoaController extends Controller
 {
     public function index(){
-        $clientes = Cliente::all();
-        return view('cliente.index',compact('clientes'));
+        $pessoas = Pessoa::all();
+        return view('cliente.index',compact('pessoas'));
     }
 
     public function criar(Request $req){
@@ -22,20 +22,20 @@ class ClienteController extends Controller
     }
 
     public function salvar(Request $req){
-        $cliente = $req->all();
-        Cliente::create($cliente);
+        $pessoa = $req->all();
+        Pessoa::create($pessoa);
         return redirect()->route('cliente.listar');
     }
 
-    public function alterar(Request $req, $id){
-        $cliente = $req->all();
-        Cliente::find($id)->update($cliente);
+    public function alterar(Request $req, int $id){
+        $pessoa = $req->all();
+        Pessoa::find($id)->update($pessoa);
         return redirect()->route('cliente.listar');
     }
 
-    public function editar($id){
-        $cliente = Cliente::find($id);
-        return view('cliente.editar',compact('cliente'));
+    public function editar(int $id){
+        $pessoa = Pessoa::find($id);
+        return view('cliente.editar',compact('pessoa'));
     }
 
     public function excluir($id){

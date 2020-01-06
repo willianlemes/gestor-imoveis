@@ -24,7 +24,7 @@
                     <label>Senha</label>
                 </div>
 
-                <button class="btn blue">Entrar</button>
+                <button type="submit" class="btn blue">Entrar</button>
             </form>
         </div>
     </div>

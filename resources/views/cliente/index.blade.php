@@ -5,9 +5,11 @@
 @section('conteudo')
 
     <div class="container">
-        <h2 class="center">
-            Clientes
+      <div class="jumbotron mt-4">
+        <h2 class="text-center">
+          CADASTRO DE PESSOAS
         </h2>
+      </div>
         <div class="row">
             <table class="table">
                 <thred>
@@ -18,13 +20,12 @@
                     </tr>
                 </thred>
                 <tbody>
-                @foreach($clientes as $cliente)
+                @foreach($pessoas as $pessoa)
                     <tr>
-                        <td>{{$cliente->id}}</td>
-                        <td>{{$cliente->nome}}</td>
+                        <td>{{$pessoa->id}}</td>
+                        <td>{{$pessoa->nome}}</td>
                         <td>
-                            <a class="btn deep-orange" href="{{ route('cliente.editar',$cliente->id) }}">Editar</a>
-                            <a class="btn red" href="{{ route('cliente.excluir',$cliente->id) }}">Excluir</a>
+                            <a class="btn btn-primary" href="{{ route('cliente.editar',$pessoa->id) }}">Editar</a>
                         </td>
                     </tr>
                 @endforeach
@@ -32,10 +33,7 @@
             </table>
         </div>
         <div class="row">
-            <a class="btn blue" href="{{ route('cliente.adicionar') }}">Adicionar</a>
-        </div>
-        <div class="row" >
-            <div class="center-align" ></div>
+            <a class="btn btn-primary mt-2" href="{{ route('cliente.adicionar') }}">Adicionar</a>
         </div>
     </div>
 @endsection
