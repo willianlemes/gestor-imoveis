@@ -21,7 +21,7 @@ class PessoaController extends Controller
         return view('cliente.adicionar');
     }
 
-    public function cadastrar(Request $req){
+    public function salvar(Request $req){
         $pessoa = $req->all();
         Pessoa::create($pessoa);
         return redirect()->route('cliente.listar');

@@ -2,9 +2,8 @@
 <html>
 <head>
     <title>@yield('titulo')</title>
-
+    <link rel="stylesheet" href="{{ url(mix('site/css/materialize.css')) }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
@@ -15,7 +14,7 @@
         <div class="nav-wrapper">
           <ul id="nav-mobile" class="left hide-on-med-and-down">
             <li>
-               <a class="dropdown-button" href="#!" data-activates="menu-cadastros">
+               <a class="dropdown-trigger" href="#!" data-target="menu-cadastros">
                  Cadastros <i class="material-icons right">arrow_drop_down</i>
               </a>
             </li>
@@ -25,7 +24,7 @@
 
             <ul>
               <li id="nav-mobile" class="right hide-on-med-and-down">
-                 <a class="dropdown-button" href="#!" data-activates="menu-usuario">
+                 <a class="dropdown-trigger" href="#!" data-target="menu-usuario">
                      <i class="material-icons left">account_circle</i>
                      {{ Auth::user()->name }}
                      <i class="material-icons right">arrow_drop_down</i>
@@ -34,7 +33,7 @@
             </ul>
         </div>
       </nav>
-      @endif      
+      @endif
 
       <ul id='menu-cadastros' class='dropdown-content'>
         <li><a href="{{ route('cliente.listar') }}">Pessoas</a></li>
@@ -59,18 +58,37 @@
 
     @yield('conteudo')
 
-    <script
-      src="https://code.jquery.com/jquery-2.2.4.min.js"
-      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="{{ url(mix('site/js/jquery.js')) }}"></script>
+    <script src="{{ url(mix('site/js/materialize.js')) }}"></script>
 
     <script type="text/javascript">
+
       $(document).ready(function(){
-        $('ul.tabs').tabs();
-        $('.dropdown-button').dropdown({
-          belowOrigin: true
+
+        $('.tabs').tabs();
+
+        $('.dropdown-trigger').dropdown({
+          coverTrigger: false
         });
+
+        $('.datepicker').datepicker({
+          format: 'dd/mm/yyyy',
+          showClearBtn: true,
+          i18n:{
+                months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                weekdays: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+                weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+                weekdaysAbbrev: ['D','S','T','Q','Q','S','S'],
+                today: 'Hoje',
+                cancel: 'Cancelar',
+                done: 'Confirmar',
+                clear: 'Limpar',
+                close: 'Fechar'
+              }
+        });
+
+        $('select').formSelect();
       });
 
     </script>

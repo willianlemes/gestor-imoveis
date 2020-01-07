@@ -21,7 +21,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/cliente/adicionar',['as'=>'cliente.adicionar', 'uses'=>'PessoaController@adicionar']);
     Route::get('/cliente/adicionar/cancelar',['as'=>'cliente.adicionar.cancelar', 'uses'=>'PessoaController@cancelar']);
     Route::get('/cliente/editar/{id}',['as'=>'cliente.editar', 'uses'=>'PessoaController@editar']);
-    Route::post('/cliente',['as'=>'cliente.salvar', 'uses'=>'PessoaController@cadastrar']);
+    Route::post('/cliente',['as'=>'cliente.salvar', 'uses'=>'PessoaController@salvar']);
     Route::put('/cliente/alterar/{id}',['as'=>'cliente.alterar', 'uses'=>'PessoaController@alterar']);
     Route::get('/cliente/excluir/{id}',['as'=>'cliente.excluir', 'uses'=>'PessoaController@excluir']);
     Route::get('/login/sair',['as'=>'site.login.sair', 'uses'=>'Site\LoginController@sair']);
