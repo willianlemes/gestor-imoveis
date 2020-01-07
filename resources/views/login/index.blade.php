@@ -6,7 +6,7 @@
 
     <div class="container">
         <h2 class="center">
-            teste
+            Login
         </h2>
         <div class="msg msg-info z-depth-3">
           {{ $mensagem }}

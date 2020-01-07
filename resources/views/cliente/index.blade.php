@@ -5,13 +5,11 @@
 @section('conteudo')
 
     <div class="container">
-      <div class="jumbotron mt-4">
-        <h2 class="text-center">
+        <h2 class="center">
           CADASTRO DE PESSOAS
         </h2>
-      </div>
         <div class="row">
-            <table class="table">
+            <table class="bordered">
                 <thred>
                     <tr>
                         <th scope="col">Nome</th>

@@ -21,10 +21,14 @@ class PessoaController extends Controller
         return view('cliente.adicionar');
     }
 
-    public function salvar(Request $req){
+    public function cadastrar(Request $req){
         $pessoa = $req->all();
         Pessoa::create($pessoa);
         return redirect()->route('cliente.listar');
+    }
+
+    public function cancelar(){
+        return redirect()->back();
     }
 
     public function alterar(Request $req, int $id){
