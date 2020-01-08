@@ -30,7 +30,7 @@ class PessoaController extends Controller
 
     public function adicionar(){
         global $perfils;
-        $perfilsSelecionados = null;
+        $perfilsSelecionados = array("cliente");
         return view('cliente.adicionar',compact('perfils','perfilsSelecionados'));
     }
 
@@ -71,8 +71,13 @@ class PessoaController extends Controller
       return $perfilsSelec;
     }
 
+    private function converterDataToBD($data){
+      return date('Y-m-d',strtotime(str_replace("/","-",$data)));
+    }
+
     public function salvar(Request $req){
         $pessoa = $req->all();
+        $pessoa['data_nasc'] = $this->converterDataToBD($pessoa['data_nasc']);
         $this->ajustarPerfil($pessoa);
         Pessoa::create($pessoa);
         return redirect()->route('cliente.listar');
@@ -84,6 +89,7 @@ class PessoaController extends Controller
 
     public function alterar(Request $req, int $id){
         $pessoa = $req->all();
+        $pessoa['data_nasc'] = $this->converterDataToBD($pessoa['data_nasc']);
         $this->ajustarPerfil($pessoa);
         Pessoa::find($id)->update($pessoa);
         return redirect()->route('cliente.listar');
@@ -91,6 +97,7 @@ class PessoaController extends Controller
 
     public function editar(int $id){
         $pessoa = Pessoa::find($id);
+        $pessoa->data_nasc = date('d/m/Y',strtotime($pessoa->data_nasc));
         $perfilsSelecionados = $this->getPerfilsSelecionados($pessoa);
         global $perfils;
         return view('cliente.editar',compact('pessoa','perfils','perfilsSelecionados'));

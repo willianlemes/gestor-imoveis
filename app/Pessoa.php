@@ -16,7 +16,17 @@ class Pessoa extends Model
       'nome_razaoSocial',
       'apelido_nomeFantasia',
       'cpf_cnpj',
-      'rg_ie'
+      'rg_ie',
+      'data_nasc',
+
+      'cep',
+      'uf',
+      'ibge',
+      'municipio',
+      'logradouro',
+      'nro_endereco',
+      'bairro',
+      'comp_endereco'
   ];
 
   protected $primaryKey = 'codigo';

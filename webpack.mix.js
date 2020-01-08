@@ -13,6 +13,9 @@ const mix = require('laravel-mix');
 
 
 
-mix.scripts('node_modules/jquery/dist/jquery.js','public/site/js/jquery.js').version();
-mix.scripts('node_modules/materialize-css/dist/js/materialize.js','public/site/js/materialize.js').version();
-mix.styles('node_modules/materialize-css/dist/css/materialize.css','public/site/css/materialize.css').version();
+mix.scripts(['node_modules/jquery/dist/jquery.js',
+    'node_modules/jquery-mask-plugin/dist/jquery.mask.js'],
+    'public/site/js/jquery.js').version();
+mix.scripts('resources/js/busca-cep.js', 'public/site/js/busca-cep.js').version();
+mix.scripts('node_modules/materialize-css/dist/js/materialize.js', 'public/site/js/materialize.js').version();
+mix.styles('node_modules/materialize-css/dist/css/materialize.css', 'public/site/css/materialize.css').version();

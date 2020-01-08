@@ -59,6 +59,7 @@
     @yield('conteudo')
 
     <script src="{{ url(mix('site/js/jquery.js')) }}"></script>
+    <script src="{{ url(mix('site/js/busca-cep.js')) }}"></script>
     <script src="{{ url(mix('site/js/materialize.js')) }}"></script>
 
     <script type="text/javascript">
@@ -74,6 +75,8 @@
         $('.datepicker').datepicker({
           format: 'dd/mm/yyyy',
           showClearBtn: true,
+          yearRange: 100,
+          maxDate: new Date(),
           i18n:{
                 months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
                 monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
@@ -89,6 +92,9 @@
         });
 
         $('select').formSelect();
+
+        $('#cep').mask('00000-000');
+
       });
 
     </script>
