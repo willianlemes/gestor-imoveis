@@ -20,10 +20,10 @@
                 <tbody>
                 @foreach($pessoas as $pessoa)
                     <tr>
-                        <td>{{$pessoa->nome}}</td>
-                        <td>{{$pessoa->apelido}}</td>
+                        <td>{{$pessoa->nome_razaoSocial}}</td>
+                        <td>{{$pessoa->apelido_nomeFantasia}}</td>
                         <td>
-                            <a class="btn btn-primary" href="{{ route('cliente.editar',$pessoa->id) }}">Editar</a>
+                            <a class="btn btn-primary" href="{{ route('cliente.editar',$pessoa->codigo) }}">Editar</a>
                         </td>
                     </tr>
                 @endforeach

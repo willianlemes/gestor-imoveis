@@ -7,9 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Pessoa extends Model
 {
   protected $fillable = [
-      'perfil',
+      'cliente',
+      'proprietario',
+      'corretor',
+      'interessado',
+      'outro',
       'tipo',
-      'nome',
-      'apelido'
+      'nome_razaoSocial',
+      'apelido_nomeFantasia',
+      'cpf_cnpj',
+      'rg_ie'
   ];
+
+  protected $primaryKey = 'codigo';
 }

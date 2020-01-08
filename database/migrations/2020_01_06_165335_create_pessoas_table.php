@@ -14,12 +14,19 @@ class CreatePessoasTable extends Migration
     public function up()
     {
         Schema::create('pessoas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('codigo');
             $table->timestamps();
-            $table->string('perfil',15);
+            $table->string('cliente',1);
+            $table->string('proprietario',1);
+            $table->string('corretor',1);
+            $table->string('interessado',1);
+            $table->string('outro',1);
             $table->string('tipo',1);
-            $table->string('nome',255);
-            $table->string('apelido',255);
+            $table->string('nome_razaoSocial',255);
+            $table->string('apelido_nomeFantasia',255);
+            $table->string('cpf_cnpj',14)->nullable();
+            $table->string('rg_ie',12)->nullable();
+            $table->date('data_nasc')->nullable();
         });
     }
 

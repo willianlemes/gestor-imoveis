@@ -9,7 +9,7 @@
           EDITAR PESSOA
         </h2>
       </div>
-      <form action="{{ route('cliente.alterar',$pessoa->id) }}" method="post">
+      <form action="{{ route('cliente.alterar',$pessoa->codigo) }}" method="post">
           {{ csrf_field() }}
           <input type="hidden" name="_method" value="put">
           @include('cliente._form')
