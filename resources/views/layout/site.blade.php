@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>@yield('titulo')</title>
-    <link rel="stylesheet" href="{{ url(mix('site/css/materialize.css')) }}">
+    <link rel="stylesheet" href="{{ url(mix('site/css/style.css')) }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -18,7 +18,7 @@
                  Cadastros <i class="material-icons right">arrow_drop_down</i>
               </a>
             </li>
-            <li><a href="#">Agenda</a></li>
+            <li><a href="{{ route('agenda.listar') }}">Agenda</a></li>
             <li><a href="#">Atividades</a></li>
           </ul>
 
@@ -58,9 +58,7 @@
 
     @yield('conteudo')
 
-    <script src="{{ url(mix('site/js/jquery.js')) }}"></script>
-    <script src="{{ url(mix('site/js/busca-cep.js')) }}"></script>
-    <script src="{{ url(mix('site/js/materialize.js')) }}"></script>
+    <script src="{{ url(mix('site/js/script.js')) }}"></script>
 
     <script type="text/javascript">
 

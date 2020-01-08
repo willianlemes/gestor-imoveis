@@ -9065,3 +9065,8 @@ input[type=range]::-ms-thumb {
     margin-top: 1.2rem;
   }
 }
+
+#modalCalendar {
+  width: 30% !important ;
+  height: 50% !important ;
+}

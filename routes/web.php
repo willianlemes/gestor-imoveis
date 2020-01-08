@@ -39,4 +39,9 @@ Route::group(['middleware'=>'auth'],function(){
 
     // Pessoa
 
+
+    Route::get('/agenda',['as'=>'agenda.listar', 'uses'=>'AgendaController@index']);
+
+    Route::get('/load-events',['as'=>'routeLoadEvents', 'uses'=>'EventController@loadEvents']);
+
 });
