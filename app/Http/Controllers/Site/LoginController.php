@@ -19,7 +19,7 @@ class LoginController extends Controller
           return redirect()->route('cliente.listar');
         }else{
           $request->session()
-          ->put(
+          ->flash(
             'mensagem',
             "Login inválido!"
           );
