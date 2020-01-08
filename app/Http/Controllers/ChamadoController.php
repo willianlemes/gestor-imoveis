@@ -33,7 +33,7 @@ class ChamadoController extends Controller
     public function adicionar(){
         $clientes = Cliente::pluck('nome','id');
         $selectedID = null;
-        return view('chamado.adicionar',compact('clientes', 'selectedID'));
+        return view('imovel.adicionar',compact('clientes', 'selectedID'));
     }
 
     public function salvar(Request $req){

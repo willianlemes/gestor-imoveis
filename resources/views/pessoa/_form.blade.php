@@ -1,5 +1,6 @@
 <ul id="tabs-swipe-demo" class="tabs col s12">
     <li class="tab col s4"><a class="active" href="#tab-Identificacao">Identificação</a></li>
+    <li class="tab col s4"><a href="#tab-contato">Contato</a></li>
     <li class="tab col s4"><a href="#tab-endereco">Endereço</a></li>
 </ul>
 
@@ -47,53 +48,38 @@
             <input id="data_nasc" name="data_nasc" type="text" class="datepicker" value="{{ isset($pessoa) ? $pessoa->data_nasc : '' }}">
             <label for="data_nasc">Data de Nascimento</label>
         </div>
+
+        <div class="input-field col s6">
+            <input name="profissao" type="text"
+            value="{{ isset($pessoa) ? $pessoa->logradouro : '' }}">
+            <label for="profissao">Profissão</label>
+        </div>
     </div>
+
 </div>
 
 <div id="tab-endereco" class="col s12">
-    <div class="row">
-        <div class="input-field col s2">
-            <input id="cep" name="cep" type="text" value="{{ isset($pessoa) ? $pessoa->cep : '' }}"
-                   onblur="pesquisacep(this.value);">
-            <label for="cep">CEP</label>
-        </div>
-        <div class="input-field col s2">
-            <input id="uf" name="uf" type="text"
-             value="{{ isset($pessoa) ? $pessoa->uf : '' }}">
-            <label for="uf">UF</label>
-        </div>
-        <div class="input-field col s2">
-            <input id="ibge" name="ibge" type="text"
-             value="{{ isset($pessoa) ? $pessoa->ibge : '' }}">
-            <label for="ibge">IBGE</label>
-        </div>
-        <div class="input-field col s6">
-            <input id="cidade" name="municipio" type="text"
-              value="{{ isset($pessoa) ? $pessoa->municipio : '' }}">
-            <label for="cidade">Município</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s6">
-            <input id="rua" name="logradouro" type="text"
-            value="{{ isset($pessoa) ? $pessoa->logradouro : '' }}">
-            <label for="rua">Logradouro</label>
-        </div>
-        <div class="input-field col s2">
-            <input id="bairro" name="nro_endereco" type="text"
-            value="{{ isset($pessoa) ? $pessoa->nro_endereco : '' }}">
-            <label for="bairro">Número</label>
-        </div>
-        <div class="input-field col s4">
-            <input id="bairro" name="bairro" type="text"
-            value="{{ isset($pessoa) ? $pessoa->bairro : '' }}">
-            <label for="bairro">Bairro</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s12">
-            <textarea name="comp_endereco" id="comp_endereco" class="materialize-textarea">{{ isset($pessoa) ? $pessoa->bairro : '' }}</textarea>
-            <label for="comp_endereco">Complemento</label>
-        </div>
-    </div>
+  @include('layout.endereco')
+</div>
+
+<div id="tab-contato" class="col s12">
+  <div class="row">
+      <div class="input-field col s6">
+          <input name="telefone" type="text"
+          value="{{ isset($pessoa) ? $pessoa->logradouro : '' }}">
+          <label for="telefone">Telefone</label>
+      </div>
+      <div class="input-field col s6">
+          <input name="celular" type="text"
+          value="{{ isset($pessoa) ? $pessoa->nro_endereco : '' }}">
+          <label for="celular">Celular</label>
+      </div>
+  </div>
+  <div class="row">
+      <div class="input-field col s6">
+          <input name="email" type="text"
+          value="{{ isset($pessoa) ? $pessoa->logradouro : '' }}">
+          <label for="email">E-mail</label>
+      </div>
+  </div>
 </div>

@@ -12,7 +12,7 @@
       <form action="{{ route('cliente.alterar',$pessoa->codigo) }}" method="post">
           {{ csrf_field() }}
           <input type="hidden" name="_method" value="put">
-          @include('cliente._form')
+          @include('pessoa._form')
         <button type="submit" class="btn btn-primary mt-2">Alterar</button>
       </form>
     </div>

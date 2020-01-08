@@ -11,17 +11,18 @@ class PessoaController extends Controller
     private $perfils;
 
     public function __construct(){
+
       global $perfils;
       $perfils = array("cliente" => "Cliente",
-                  "proprietario" => "Proprietário",
-                  "corretor" => "Corretor",
-                  "interessado" => "Interessado",
-                  "outro" => "Outro");
+                       "proprietario" => "Proprietário",
+                       "corretor" => "Corretor",
+                       "interessado" => "Interessado",
+                       "outro" => "Outro");
     }
 
     public function index(){
-        $pessoas = Pessoa::all();
-        return view('cliente.index',compact('pessoas'));
+        $pessoas = Pessoa::paginate(4);
+        return view('pessoa.index',compact('pessoas'));
     }
 
     public function criar(Request $req){
@@ -31,7 +32,7 @@ class PessoaController extends Controller
     public function adicionar(){
         global $perfils;
         $perfilsSelecionados = array("cliente");
-        return view('cliente.adicionar',compact('perfils','perfilsSelecionados'));
+        return view('pessoa.adicionar',compact('perfils','perfilsSelecionados'));
     }
 
     private function ajustarPerfil(&$pessoa){
@@ -100,7 +101,7 @@ class PessoaController extends Controller
         $pessoa->data_nasc = date('d/m/Y',strtotime($pessoa->data_nasc));
         $perfilsSelecionados = $this->getPerfilsSelecionados($pessoa);
         global $perfils;
-        return view('cliente.editar',compact('pessoa','perfils','perfilsSelecionados'));
+        return view('pessoa.editar',compact('pessoa','perfils','perfilsSelecionados'));
     }
 
     public function excluir($id){

@@ -37,7 +37,7 @@
 
       <ul id='menu-cadastros' class='dropdown-content'>
         <li><a href="{{ route('cliente.listar') }}">Pessoas</a></li>
-        <li><a href="{{ route('chamado.listar') }}">Propriedades</a></li>
+        <li><a href="{{ route('imovel.listar') }}">Propriedades</a></li>
       </ul>
 
       <ul id='menu-usuario' class='dropdown-content'>

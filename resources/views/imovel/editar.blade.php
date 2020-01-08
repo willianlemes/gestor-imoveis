@@ -1,21 +1,19 @@
 @extends('layout.site')
 
-@section('titulo','Novo Chamado')
+@section('titulo','Editar Chamado')
 
 @section('conteudo')
 
     <div class="container">
         <h2 class="center">
-            Novo Chamado
+            Alterar Chamado
         </h2>
         <div class="row">
-            <form action="{{ route('chamado.salvar') }}" method="post">
+            <form action="{{ route('imovel.alterar') }}" method="post">
                 {{ csrf_field() }}
+                <input type="hidden" name="_method" value="put">
                 @include('chamado._form')
-                <div class="row">
-                    <button class="btn blue">Salvar</button>
-                </div>
-
+                <button class="btn deep-orange">Alterar</button>
             </form>
         </div>
     </div>

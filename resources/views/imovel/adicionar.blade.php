@@ -1,15 +1,15 @@
 @extends('layout.site')
 
-@section('titulo','Adicionar Cliente')
+@section('titulo','Adicionar Imóvel')
 
 @section('conteudo')
   <div class="container">
     <h4>
-      Cadastrar Pessoa
+      Novo Imóvel
     </h4>
-    <form class="col s12" action="{{ route('cliente.salvar') }}" method="post">
+    <form class="col s12" action="{{ route('imovel.salvar') }}" method="post">
         {{ csrf_field() }}
-        @include('cliente._form')
+        @include('imovel._form')
         <button class="btn waves-effect waves-light" type="submit">Salvar
           <i class="material-icons right">send</i>
         </button>

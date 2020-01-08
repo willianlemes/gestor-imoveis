@@ -17,6 +17,17 @@ Route::post('/login/entrar',['as'=>'site.login.entrar', 'uses'=>'Site\LoginContr
 
 Route::group(['middleware'=>'auth'],function(){
 
+    // ------------------------------- Imóvel -----------------------------------------------------
+    Route::get('/imovel',['as'=>'imovel.listar', 'uses'=>'ImovelController@index']);
+    Route::get('/imovel/adicionar',['as'=>'imovel.adicionar', 'uses'=>'ImovelController@adicionar']);
+    Route::get('/imovel/editar/{id}',['as'=>'imovel.editar', 'uses'=>'ImovelController@editar']);
+    Route::post('/imovel/salvar',['as'=>'imovel.salvar', 'uses'=>'ImovelController@salvar']);
+    Route::put('/imovel/alterar/{id}',['as'=>'imovel.alterar', 'uses'=>'ImovelController@alterar']);
+    // ----------------------------------------------------------------------------------------------
+
+
+
+
     Route::get('/cliente',['as'=>'cliente.listar', 'uses'=>'PessoaController@index']);
     Route::get('/cliente/adicionar',['as'=>'cliente.adicionar', 'uses'=>'PessoaController@adicionar']);
     Route::get('/cliente/adicionar/cancelar',['as'=>'cliente.adicionar.cancelar', 'uses'=>'PessoaController@cancelar']);
@@ -25,10 +36,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::put('/cliente/alterar/{id}',['as'=>'cliente.alterar', 'uses'=>'PessoaController@alterar']);
     Route::get('/cliente/excluir/{id}',['as'=>'cliente.excluir', 'uses'=>'PessoaController@excluir']);
     Route::get('/login/sair',['as'=>'site.login.sair', 'uses'=>'Site\LoginController@sair']);
-    Route::get('/chamado',['as'=>'chamado.listar', 'uses'=>'ChamadoController@index']);
-    Route::get('/chamado/adicionar',['as'=>'chamado.adicionar', 'uses'=>'ChamadoController@adicionar']);
-    Route::get('/chamado/editar/{id}',['as'=>'chamado.editar', 'uses'=>'ChamadoController@editar']);
-    Route::post('/chamado/salvar',['as'=>'chamado.salvar', 'uses'=>'ChamadoController@salvar']);
-    Route::put('/chamado/alterar/{id}',['as'=>'chamado.alterar', 'uses'=>'ChamadoController@alterar']);
+
+    // Pessoa
 
 });

@@ -31,6 +31,9 @@
             </table>
         </div>
         <div class="row">
+          {{ $pessoas->links() }}
+        </div>
+        <div class="row">
             <a class="btn btn-primary mt-2" href="{{ route('cliente.adicionar') }}">Adicionar</a>
         </div>
     </div>

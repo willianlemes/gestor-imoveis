@@ -27,6 +27,10 @@ class CreatePessoasTable extends Migration
             $table->string('cpf_cnpj',14)->nullable();
             $table->string('rg_ie',12)->nullable();
             $table->date('data_nasc')->nullable();
+            $table->string('profissao',100)->nullable();
+            $table->string('telefone',20)->nullable();
+            $table->string('celular',20)->nullable();
+            $table->string('email',100)->nullable();
             $table->string('cep',9)->nullable();
             $table->string('uf',2)->nullable();
             $table->string('ibge',7)->nullable();

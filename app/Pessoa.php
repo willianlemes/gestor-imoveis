@@ -18,7 +18,10 @@ class Pessoa extends Model
       'cpf_cnpj',
       'rg_ie',
       'data_nasc',
-
+      'profissao',
+      'telefone',
+      'celular',
+      'email',
       'cep',
       'uf',
       'ibge',
