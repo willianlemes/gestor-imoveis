@@ -44,4 +44,9 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::get('/load-events',['as'=>'routeLoadEvents', 'uses'=>'EventController@loadEvents']);
 
+
+    Route::get('/agenda',['as'=>'agenda.listar', 'uses'=>'AgendaController@index']);
+
+    Route::get('/load-events',['as'=>'routeLoadEvents', 'uses'=>'EventController@loadEvents']);
+
 });
