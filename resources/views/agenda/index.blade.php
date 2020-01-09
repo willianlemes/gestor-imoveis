@@ -97,6 +97,9 @@
           }
 
           $("#modalCalendar").modal('open');
+        },
+        select: function(elemet){
+          alert('selecionou');
         }
       });
 
