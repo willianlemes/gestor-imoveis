@@ -31,4 +31,9 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('/chamado/salvar',['as'=>'chamado.salvar', 'uses'=>'ChamadoController@salvar']);
     Route::put('/chamado/alterar/{id}',['as'=>'chamado.alterar', 'uses'=>'ChamadoController@alterar']);
 
+
+    Route::get('/agenda',['as'=>'agenda.listar', 'uses'=>'AgendaController@index']);
+
+    Route::get('/load-events',['as'=>'routeLoadEvents', 'uses'=>'EventController@loadEvents']);
+
 });
