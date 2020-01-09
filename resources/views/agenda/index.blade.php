@@ -2,18 +2,10 @@
 <html>
 <head>
 <meta charset='utf-8' />
-{{-- <link href='../packages/core/main.css' rel='stylesheet' />
-<link href='../packages/daygrid/main.css' rel='stylesheet' />
-<link href='../packages/timegrid/main.css' rel='stylesheet' />
-<link href='../packages/list/main.css' rel='stylesheet' />
-<script src='../packages/core/main.js'></script>
-<script src='../packages/interaction/main.js'></script>
-<script src='../packages/daygrid/main.js'></script>
-<script src='../packages/timegrid/main.js'></script>
-<script src='../packages/list/main.js'></script> --}}
 
 <link rel="stylesheet" href="{{ url(mix('site/css/fullcalendar.css')) }}">
 <link rel="stylesheet" href="{{ url(mix('site/css/style.css')) }}">
+
 <script src="{{ url(mix('site/js/fullcalendar.js')) }}"></script>
 <script src="{{ url(mix('site/js/script.js')) }}"></script>
 
@@ -61,13 +53,13 @@
 
     $(document).ready(function(){
       $('.date-time').mask('00/00/0000 00:00:00');
-      $('.modal').modal();
     });
 
      $(document).ready(function(){
       var calendarEl = document.getElementById('calendar');
 
       var calendar = new FullCalendar.Calendar(calendarEl, {
+        locale: 'pt-Br',
         plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list' ],
         height: 'parent',
         header: {
@@ -80,8 +72,13 @@
         navLinks: true, // can click day/week names to navigate views
         editable: true,
         eventLimit: true, // allow "more" link when too many events
+        selectable: true,
+        selectHelper: true,
         events: routeEvents(),
         eventClick: function(elemet){
+
+          console.log('clicou');
+
           let id = elemet.event.id;
           $("#modalCalendar input[name='id']").val(id);
 
@@ -96,10 +93,18 @@
             $("#modalCalendar input[name='end']").val(end);
           }
 
-          $("#modalCalendar").modal('open');
+          $('#modalCalendar').modal('show');
         },
-        select: function(elemet){
-          alert('selecionou');
+        select: function(selectionInfo){
+          $("#modalCalendar input[name='start']").val(
+                            moment(selectionInfo.start).format('DD/MM/YYYY HH:mm:ss')
+                          );
+
+          $("#modalCalendar input[name='end']").val(
+                            moment(selectionInfo.end).format('DD/MM/YYYY HH:mm:ss')
+                          );
+
+          $("#modalCalendar").modal('open');
         }
       });
 
