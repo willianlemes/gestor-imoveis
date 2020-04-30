@@ -25,7 +25,7 @@
         "@fullcalendar/list": "^4.3.0",
         "@fullcalendar/timegrid": "^4.3.0",
         "bootstrap": "^4.4.1",
-        "jquery": "^3.4.1",
+        "jquery": "^3.5.0",
         "jquery-datetimepicker": "^2.5.21",
         "jquery-mask-plugin": "^1.14.16",
         "materialize-css": "^1.0.0-rc.2",
